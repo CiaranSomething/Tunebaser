@@ -1,0 +1,8 @@
+.carousel-container{
+    padding-top: 15px;
+}
+
+.carousel-inner{
+    max-height: 500px !important;
+    width: 100%;
+}
