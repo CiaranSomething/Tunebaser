@@ -30,6 +30,8 @@ router.post("/", function(req, res){
             console.log(err)
         } else {
             console.log("new artist successfully added");
+            console.log(req);
+            console.log(newArtist);
             res.redirect("/artists");
         }
     });

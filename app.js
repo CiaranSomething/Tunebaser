@@ -17,7 +17,6 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
 
-
 //middleware for passing through things to all templates
 // app.use(function(req, res, next){
 //     //'locals' go here
