@@ -5,12 +5,6 @@ var express     = require("express"),
     //method-override - browsers don't support PUT and DELETE requests, so need this
     methodOverride  = require("method-override");
 
-    //ciaran git test
-    //another ciaran git test
-
-    //git mac
-    //git pc
-
 //require route files
 var artistRoutes = require("./routes/artists");
 var indexRoutes = require("./routes/index");
@@ -33,8 +27,6 @@ app.use(express.static(__dirname + "/public"));
 //Use routes
 app.use(indexRoutes);
 app.use("/artists", artistRoutes);
-
-
 
 //need this so you actually see the fucking site
 app.listen(3000, function(){
