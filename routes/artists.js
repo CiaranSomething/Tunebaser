@@ -10,7 +10,7 @@ router.get("/", function(req, res){
             console.log(err);
         } else {
             //if any variables are to be added to be used in the ejs for the artists index, pass them in this method
-            res.render("artists/index");
+            res.render("artists/index", {artists : allArtists});
         }
     });
 });
@@ -35,9 +35,23 @@ router.post("/", function(req, res){
         if(err){
             console.log(err);
         } else {
-            console.log(req.body);
             console.log("new artist successfully added");
             res.redirect("/artists");
+        }
+    });
+});
+
+// SHOW - show more info about an artist
+router.get("/:id", function(req, res){
+    //find the artist with provided ID
+    Artist.findById(req.params.id, function(err, foundArtist){
+        if(err || !foundArtist){
+            //this can be replaced with a flash message eventually
+            console.log("artist not found");
+            res.redirect("/artists");
+        } else {
+            //render show template
+            res.render("artists/show", {artist: foundArtist});
         }
     });
 });

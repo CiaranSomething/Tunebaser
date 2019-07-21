@@ -14,3 +14,13 @@
 nav{
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.1);
 }
+
+.formContainer{
+    text-align: center;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+}
+
+.inputForm{
+    padding: 0 50px;
+}

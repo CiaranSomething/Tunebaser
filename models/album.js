@@ -6,4 +6,4 @@ var AlbumSchema = new mongoose.Schema({
     yearReleased: Number
 });
 
-module.exports = mongoose.model("Artist", AlbumSchema);
+module.exports = mongoose.model("Album", AlbumSchema);

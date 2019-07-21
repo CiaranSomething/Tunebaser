@@ -1,20 +1,20 @@
 <% include ../partials/header %>
 
 <div class="row">
-    <div style="width: 30%; margin: 25px auto;">
-        <h1 class="display-4">Add a New Artist</h1>
-        <form action="/artists" method="POST">
+    <div class="formContainer" style="width: 30%; margin: 15rem auto;">
+        <h1 class="display-5">New Artist</h1>
+        <form class="inputForm" action="/artists" method="POST">
             <div class="form-group">
                 <label for="name">Artist Name</label>
-                <input type="text" class="form-control" id="name" placeholder="Enter artist name">
+                <input type="text" class="form-control" name="name" id="name" placeholder="Enter artist name">
             </div>
             <div class="form-group">
                 <label for="imageUrl">Artist Image</label>
-                <input type="text" class="form-control" id="imageUrl" placeholder="Artist Image URL">
+                <input type="text" class="form-control" name="imageUrl" id="imageUrl" placeholder="Artist Image URL">
             </div>
-            <button id="submitButton" type="submit" class="btn btn-primary">Submit</button>
+            <button style="margin-bottom: 30px" id="submitButton" type="submit" class="btn btn-primary">Submit</button>
         </form>
-        <a href="/artists">Go back</a>
+        <a  href="/artists">Go back</a>
     </div>  
 </div>
 
