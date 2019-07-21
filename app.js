@@ -11,10 +11,10 @@ var indexRoutes = require("./routes/index");
 
 //connect to database
 mongoose.connect("mongodb://localhost/music_database", {useNewUrlParser: true, useFindAndModify: false});
-
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 app.use(methodOverride("_method"));
 app.set("view engine", "ejs");
-app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
 
 //middleware for passing through things to all templates
@@ -27,7 +27,7 @@ app.use(express.static(__dirname + "/public"));
 app.use(indexRoutes);
 app.use("/artists", artistRoutes);
 
-//need this so you actually see the fucking site
+//need this so you actually see the site
 app.listen(3000, function(){
-    console.log("The music database has started!")
+    console.log("The music database has started!");
 });

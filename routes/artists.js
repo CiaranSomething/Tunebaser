@@ -25,13 +25,12 @@ router.post("/", function(req, res){
     var newArtist = {name: artistName, imageUrl: artistImage};
 
     //add to the db
-    Artist.create(newArtist, function(err){
+    Artist.create(newArtist, function(err, newlyCreated){
         if(err){
-            console.log(err)
+            console.log(err);
         } else {
+            console.log(req.body);
             console.log("new artist successfully added");
-            console.log(req);
-            console.log(newArtist);
             res.redirect("/artists");
         }
     });
