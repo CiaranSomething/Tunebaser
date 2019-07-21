@@ -1,22 +1,19 @@
 <% include ../partials/header %>
 
-<div class="container">
-    <h1 class="display-4">Artists Page</h1>
-
-    <a class="btn btn-lg btn-primary rounded-pill" href="/artists/new">Create New Artist</a>
-</div>
+<h1 class="display-4">Artists Page</h1>
+<a class="btn btn-lg btn-primary rounded-pill" href="/artists/new">Create New Artist</a>
 
 <div class="row text-center" style="display: flex; flex-wrap: wrap; padding-top: 20px">
-        <% artists.forEach(function(artist){ %>
-            <div class="col-md-3 col-sm-6">
-                <div class="thumbnail">
-                    <a href="/artists/<%=artist._id%>"><img style="width: 300px" src="<%=artist.imageUrl%>"></a>
-                    <div class="caption">
-                        <a href="/artists/<%=artist._id%>"><h4 style="color: black"><%=artist.name%></h4></a>
-                    </div>
+    <% artists.forEach(function(artist){ %>
+        <div class="col-md-3 col-sm-6">
+            <div class="thumbnail">
+                <a href="/artists/<%=artist._id%>"><img style="width: 300px" src="<%=artist.imageUrl%>"></a>
+                <div class="caption">
+                    <a href="/artists/<%=artist._id%>"><h4 style="color: black"><%=artist.name%></h4></a>
                 </div>
             </div>
-        <%})%>
-    </div>
+        </div>
+    <%})%>
+</div>
 
 <% include ../partials/footer %>
