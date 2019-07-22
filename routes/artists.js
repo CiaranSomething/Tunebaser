@@ -56,4 +56,30 @@ router.get("/:id", function(req, res){
     });
 });
 
+// EDIT route - open the page to edit an existing artist
+router.get("/:id/edit", function(req, res){
+    Artist.findById(req.params.id, function(err, foundArtist){
+        if(err){
+            console.log(err)
+        } else {
+            res.render("artists/edit", {artist: foundArtist});
+        }
+    });
+});
+
+// UPDATE - Update an existing artist
+router.put("/:id", function(req, res){
+    Artist.findByIdAndUpdate(req.params.id, req.body.artist, function(err, artist){
+        if(err){
+            //can replace with a flash message later
+            console.log(err);
+            res.redirect("back");
+        } else {
+            res.redirect("/artists/" + artist._id);
+        }
+    });
+});
+
+
+
 module.exports = router;
