@@ -6,6 +6,11 @@
 
 <p><a class="btn btn-xs btn-warning" href="/artists/<%= artist._id %>/edit">Edit</a></p>
 
+<%# This button needs to go in a form because browsers don't support DELETE requests %>
+<form class="delete-form" action="/artists/<%= artist._id %>?_method=DELETE" method="POST">
+    <a class="btn btn-xs btn-danger" href="/artists/<%= artist._id %>/delete">Delete</a>
+</form>
+
 <p><a href="/artists/">Go Back</a></p>
 
 <% include ../partials/footer %>

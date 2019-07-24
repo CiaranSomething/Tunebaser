@@ -3,9 +3,9 @@ var router = express.Router({mergeParams: true});
 var Artist = require("../models/artist");
 
 //INDEX - Show all artists
-router.get("/", function(req, res){
+router.get("/", (req, res) => {
     //get all artists from the DB
-    Artist.find({}, function(err, allArtists){
+    Artist.find({}, (err, allArtists) => {
         if(err){
             console.log(err);
         } else {
@@ -16,12 +16,12 @@ router.get("/", function(req, res){
 });
 
 //NEW - the New artist form
-router.get("/new", function(req, res){
+router.get("/new", (req, res) => {
     res.render("artists/new");
 });
 
 //CREATE - Create the new artist and add to the DB
-router.post("/", function(req, res){
+router.post("/", (req, res) => {
 
     //get the data from the form
     var artistName = req.body.name;
@@ -31,7 +31,7 @@ router.post("/", function(req, res){
     var newArtist = {name: artistName, imageUrl: artistImage};
 
     //add to the db
-    Artist.create(newArtist, function(err, newlyCreated){
+    Artist.create(newArtist, (err, newlyCreated) => {
         if(err){
             console.log(err);
         } else {
@@ -42,9 +42,9 @@ router.post("/", function(req, res){
 });
 
 // SHOW - show more info about an artist
-router.get("/:id", function(req, res){
+router.get("/:id", (req, res) => {
     //find the artist with provided ID
-    Artist.findById(req.params.id, function(err, foundArtist){
+    Artist.findById(req.params.id, (err, foundArtist) => {
         if(err || !foundArtist){
             //this can be replaced with a flash message eventually
             console.log("artist not found");
@@ -57,8 +57,8 @@ router.get("/:id", function(req, res){
 });
 
 // EDIT route - open the page to edit an existing artist
-router.get("/:id/edit", function(req, res){
-    Artist.findById(req.params.id, function(err, foundArtist){
+router.get("/:id/edit", (req, res) => {
+    Artist.findById(req.params.id, (err, foundArtist) => {
         if(err){
             console.log(err)
         } else {
@@ -68,7 +68,7 @@ router.get("/:id/edit", function(req, res){
 });
 
 // UPDATE - Update an existing artist
-router.put("/:id", function(req, res){
+router.put("/:id", (req, res) => {
     Artist.findByIdAndUpdate(req.params.id, req.body.artist, function(err, artist){
         if(err){
             //can replace with a flash message later
@@ -80,6 +80,15 @@ router.put("/:id", function(req, res){
     });
 });
 
-
+//DELETE - Delete an existing artist
+router.delete("/:id", (req, res) => {
+    Artist.findByIdAndRemove(req.params.id, (err, artistRemoved) => {
+        if(err){
+            console.log(err);
+        } else {
+            res.redirect("/artists/");
+        };
+    });
+});
 
 module.exports = router;
