@@ -8,8 +8,10 @@
 
 <%# This button needs to go in a form because browsers don't support DELETE requests %>
 <form class="delete-form" action="/artists/<%= artist._id %>?_method=DELETE" method="POST">
-    <a class="btn btn-xs btn-danger" href="/artists/<%= artist._id %>/delete">Delete</a>
+    <button class="btn btn-xs btn-danger">Delete</button>
 </form>
+
+<p><a class="btn btn-xs btn-primary" href="/artists/<%= artist._id %>/albums/new">Add an Album</a></p>
 
 <p><a href="/artists/">Go Back</a></p>
 
