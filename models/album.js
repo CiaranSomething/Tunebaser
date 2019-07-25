@@ -6,8 +6,10 @@ var AlbumSchema = new mongoose.Schema({
     yearReleased: Number,
     artworkUrl: String,
     artist: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Artist"
+        id: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Artist"
+        },
     }
 });
 

@@ -5,8 +5,10 @@ var SongSchema = new mongoose.Schema({
     title: String,
     trackNumber: Number,
     album: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Artist"
+        id: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Artist"
+        },
     }
 });
 

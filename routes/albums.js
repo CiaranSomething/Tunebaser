@@ -28,12 +28,13 @@ router.post("/", (req, res) => {
                 if(err){
                     console.log(err);
                 } else {
-                    album.artist.id = req.artist._id;
+                    album.artist.id = foundArtist._id;
+                    album.save();
 
-                    artist.albums.push(album);
-                    artist.save();
+                    foundArtist.albums.push(album);
+                    foundArtist.save();
 
-                    res.redirect("/artists/" + artist._id);
+                    res.redirect("/artists/" + foundArtist._id);
                 }
             })
         }

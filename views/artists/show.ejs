@@ -13,6 +13,18 @@
 
 <p><a class="btn btn-xs btn-primary" href="/artists/<%= artist._id %>/albums/new">Add an Album</a></p>
 
+<% artist.albums.forEach(function(album){ %>
+    <% console.log(album.title); %>
+    <div class="col-md-3 col-sm-6">
+        <div class="thumbnail">
+            <a href="/artists/<%=artist._id%>/albums/<%=album._id%>"><img style="width: 200px" src="<%=album.artworkUrl%>"></a>
+            <div class="caption">
+                <a href="/artists/<%=artist._id%>/albums/<%=album._id%>"><h6 style="color: black"><%=album.title%></h6></a>
+            </div>
+        </div>
+    </div>
+<%})%>
+
 <p><a href="/artists/">Go Back</a></p>
 
 <% include ../partials/footer %>
