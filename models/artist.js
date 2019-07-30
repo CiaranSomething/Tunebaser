@@ -4,12 +4,13 @@ var mongoose = require("mongoose");
 var ArtistSchema = new mongoose.Schema({
     name: String,
     imageUrl: String,
+
     albums: [
         {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Album"
-    }
-]
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Album"
+        }
+    ]
 });
 
 module.exports = mongoose.model("Artist", ArtistSchema);

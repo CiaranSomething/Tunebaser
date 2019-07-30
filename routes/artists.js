@@ -44,7 +44,7 @@ router.post("/", (req, res) => {
 // SHOW - show more info about an artist
 router.get("/:id", (req, res) => {
     //find the artist with provided ID
-    Artist.findById(req.params.id, (err, foundArtist) => {
+    Artist.findById(req.params.id).populate("Albums").exec(function(err, foundArtist){
         if(err || !foundArtist){
             //this can be replaced with a flash message eventually
             console.log("artist not found");

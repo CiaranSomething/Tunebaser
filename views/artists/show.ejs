@@ -14,11 +14,7 @@
 <p><a class="btn btn-xs btn-primary" href="/artists/<%= artist._id %>/albums/new">Add an Album</a></p>
 
 <% artist.albums.forEach(function(album){ %>
-    <div class="row">
-        <div class="col-md-12">
-            <strong><%= album.title %></strong>
-        </div>
-    </div>
+    <h1><%=album.title%></h1>
 <%})%>
 
 <p><a href="/artists/">Go Back</a></p>
