@@ -41,4 +41,18 @@ router.post("/", (req, res) => {
     })
 })
 
+//SHOW - Show album route
+router.get("/:id", (req, res) => {
+    //find album by id
+    Album.findById(req.params.id, (err, foundAlbum) => {
+        if(err || !foundAlbum){
+            console.log(err)
+            console.log("Album not found, something fucked up!")
+            res.redirect("back")
+        } else {
+            res.render("albums/show")
+        }
+    });
+});
+
 module.exports = router;
