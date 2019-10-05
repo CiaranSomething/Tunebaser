@@ -41,6 +41,8 @@ router.post("/", (req, res) => {
     });
 });
 
+//testing
+
 // SHOW - show more info about an artist
 router.get("/:id", (req, res) => {
     //find the artist with provided ID
