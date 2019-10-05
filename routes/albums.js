@@ -17,6 +17,7 @@ router.get("/new", (req, res) => {
     });
 });
 
+
 //CREATE - Create album route
 router.post("/", (req, res) => {
     Artist.findById(req.params.id, (err, foundArtist) => {
